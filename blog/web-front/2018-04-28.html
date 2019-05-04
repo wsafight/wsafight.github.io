@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>利用 WeakMap 对 Vue 新建数组中的对象赋予 :key | jump-jump-docs</title>
+    <meta name="description" content="Welcome to my docs">
+    <link rel="icon" href="/img/logo.ico">
+    
+    <link rel="preload" href="/assets/css/0.styles.2bb79f07.css" as="style"><link rel="preload" href="/assets/js/app.f6f42336.js" as="script"><link rel="preload" href="/assets/js/7.1522f039.js" as="script"><link rel="prefetch" href="/assets/js/10.a7531174.js"><link rel="prefetch" href="/assets/js/11.c7557574.js"><link rel="prefetch" href="/assets/js/12.a15c98a1.js"><link rel="prefetch" href="/assets/js/2.3e8c2d15.js"><link rel="prefetch" href="/assets/js/3.f391912c.js"><link rel="prefetch" href="/assets/js/4.7c653218.js"><link rel="prefetch" href="/assets/js/5.f2bf7cdc.js"><link rel="prefetch" href="/assets/js/6.da901f04.js"><link rel="prefetch" href="/assets/js/8.4857a3b8.js"><link rel="prefetch" href="/assets/js/9.1864f8cb.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.2bb79f07.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">jump-jump-docs</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/introduction.html" class="nav-link">个人博客</a></div><div class="nav-item"><a href="/algorithm/introduction.html" class="nav-link">常用算法</a></div><div class="nav-item"><a href="/perception/introduction.html" class="nav-link">个人感悟</a></div><div class="nav-item"><a href="/about.html" class="nav-link">关于</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">了解更多</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/jgsrty" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/RtyXmd" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/0f735486a824" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  简书
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="http://47.100.53.108/#/index" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  移动端Music
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="http://47.100.53.108:9527/#/charts/pieChart" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  管理后台模板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/introduction.html" class="nav-link">个人博客</a></div><div class="nav-item"><a href="/algorithm/introduction.html" class="nav-link">常用算法</a></div><div class="nav-item"><a href="/perception/introduction.html" class="nav-link">个人感悟</a></div><div class="nav-item"><a href="/about.html" class="nav-link">关于</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">了解更多</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/jgsrty" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/RtyXmd" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/0f735486a824" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  简书
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="http://47.100.53.108/#/index" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  移动端Music
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="http://47.100.53.108:9527/#/charts/pieChart" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  管理后台模板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blog/introduction.html" class="sidebar-link">导读</a></li><li><div class="sidebar-group"><p class="sidebar-heading open"><span>web前端</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/blog/web-front/2019-05-03.html" class="sidebar-link">谈谈前端工程化 js加载</a></li><li><a href="/blog/web-front/2019-04-27.html" class="sidebar-link">从 VantComponent 谈 小程序维护</a></li><li><a href="/blog/web-front/2019-04-21.html" class="sidebar-link">前端 api 请求缓存方案</a></li><li><a href="/blog/web-front/2018-04-28.html" class="active sidebar-link">利用 WeakMap 对 Vue 新建数组中的对象赋予 :key</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/web-front/2018-04-28.html#需求" class="sidebar-link">需求</a></li><li class="sidebar-sub-header"><a href="/blog/web-front/2018-04-28.html#方案" class="sidebar-link">方案</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/web-front/2018-04-28.html#简单的组件" class="sidebar-link">简单的组件</a></li><li class="sidebar-sub-header"><a href="/blog/web-front/2018-04-28.html#复杂的组件" class="sidebar-link">复杂的组件</a></li><li class="sidebar-sub-header"><a href="/blog/web-front/2018-04-28.html#缺点" class="sidebar-link">缺点</a></li></ul></li><li class="sidebar-sub-header"><a href="/blog/web-front/2018-04-28.html#更好的方法-weakmap" class="sidebar-link">更好的方法 WeakMap</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/web-front/2018-04-28.html#思考" class="sidebar-link">思考</a></li><li class="sidebar-sub-header"><a href="/blog/web-front/2018-04-28.html#weakmap的作用" class="sidebar-link">WeakMap的作用</a></li></ul></li><li class="sidebar-sub-header"><a href="/blog/web-front/2018-04-28.html#weakmap-其他使用场景" class="sidebar-link">WeakMap  其他使用场景</a></li><li class="sidebar-sub-header"><a href="/blog/web-front/2018-04-28.html#总结" class="sidebar-link">总结</a></li></ul></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="利用-weakmap-对-vue-新建数组中的对象赋予-key"><a href="#利用-weakmap-对-vue-新建数组中的对象赋予-key" aria-hidden="true" class="header-anchor">#</a> 利用 WeakMap 对 Vue 新建数组中的对象赋予 :key</h1> <h2 id="需求"><a href="#需求" aria-hidden="true" class="header-anchor">#</a> 需求</h2> <p>在 Vue 中，对组件进行循环都需要加入key以便“就地复用”，可是在某些情况下，我们需要新建多个对象，而这些对象不是从后端获取到的，而是前端生成的，没有唯一值，且 Vue 目前版本只允许字符串，数字作为组件的 key。</p> <h2 id="方案"><a href="#方案" aria-hidden="true" class="header-anchor">#</a> 方案</h2> <h3 id="简单的组件"><a href="#简单的组件" aria-hidden="true" class="header-anchor">#</a> 简单的组件</h3> <p>例如</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;template&gt; 
+    &lt;easy-component v-for=&quot;(item, index) in items&quot; :key=&quot;index&quot;/&gt;
+&lt;/template&gt;
+&lt;script&gt;
+    export default{
+        methods: {
+            addSometing () {
+                this.items.push({
+                    // 一些属性
+                    someProp
+                })
+            }
+        }
+    }
+&lt;/script&gt;
+</code></pre></div><p>简单的组件，对 items 进行 CRUD 都是可以识别出来。不会影响界面的显示。</p> <h3 id="复杂的组件"><a href="#复杂的组件" aria-hidden="true" class="header-anchor">#</a> 复杂的组件</h3> <p>但是对于一些复杂的组件 Vue 是识别不出来的，而且在删除时候会发生错乱。<br>
+所以需要这样写</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;template&gt; 
+    &lt;complex-component v-for=&quot;item in items :key=&quot;item.id&quot;/&gt;
+&lt;/template&gt;
+&lt;script&gt;
+    export default{
+        methods: {
+            addSometing () {
+                this.items.push({
+                    id: getUidFunction(),
+                    // 一些属性
+                    someProp
+                })
+            }
+        }
+    }
+&lt;/script&gt;
+</code></pre></div><p>在创建时候添加唯一的 key —— id ，并且在上传的时候删除数组的 id</p> <h3 id="缺点"><a href="#缺点" aria-hidden="true" class="header-anchor">#</a> 缺点</h3> <p>很难判断你所写的组件究竟是复杂还是简单，但在数组对象中添加唯一的 id 且必须在上传之前去除它，这终究不是一个好的解决方案。</p> <h2 id="更好的方法-weakmap"><a href="#更好的方法-weakmap" aria-hidden="true" class="header-anchor">#</a> 更好的方法 WeakMap</h2> <h3 id="思考"><a href="#思考" aria-hidden="true" class="header-anchor">#</a> 思考</h3> <p>在ruby语言中，我们可以唯一确定这个对象，因为每个对象新建后都有一个唯一值确定该对象。但是 js 却没有这种语言特性。所以我们要从这方面入手考虑。</p> <h3 id="weakmap的作用"><a href="#weakmap的作用" aria-hidden="true" class="header-anchor">#</a> WeakMap的作用</h3> <p>WeakMap针对于普通的 Map 有两点特殊之处<br>
+1、WeakMap只接受对象作为键名（ null 除外），不接受其他类型的值作为键名。<br>
+2、WeakMap的键名所指向的对象是弱引用，不计入垃圾回收机制。<br>
+重点在于 如果删除了WeakMap的键名所指向的对象，无需手动删除应用。<br>
+那么 思考后代码如下</p> <div class="language- extra-class"><pre class="language-text"><code>// 唯一key
+let uKey = 1
+// 弱引用Map
+const uidMap = new WeakMap()
+
+function getUniqueKey (obj) {
+    if (!uidMap.has(obj)) {
+        uidMap.set(obj, uKey++)
+    }
+    return uidMap.get(obj)
+}
+
+// 为了简单直接使用插件
+const uidPlugin = {
+    install (Vue) {
+        Vue.prototype.$uid = getUniqueKey
+    }
+}
+
+if (typeof window !== 'undefined' &amp;&amp; window.Vue) {
+    window.Vue.use(uidPlugin)
+}
+
+export { uidPlugin }
+</code></pre></div><p>在复杂的组件可以这样使用</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;template&gt; 
+    &lt;complex-component v-for=&quot;(item, index) in items :key=&quot;$uid(item)&quot;/&gt;
+&lt;/template&gt;
+</code></pre></div><p>无需添加唯一的 id 以及删除 id ，即插即用且不影响垃圾回收。完美！</p> <h2 id="weakmap-其他使用场景"><a href="#weakmap-其他使用场景" aria-hidden="true" class="header-anchor">#</a> WeakMap  其他使用场景</h2> <p>1、标识 对象<br>
+2、缓存与对象相关的 属性<br>
+3、为对象添加监听器<br>
+具体可参考 <a href="http://exploringjs.com/es6/ch_maps-sets.html#_use-cases-for-weakmaps" target="_blank" rel="noopener noreferrer">Exploring ES6<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h2 id="总结"><a href="#总结" aria-hidden="true" class="header-anchor">#</a> 总结</h2> <p>新的特性对应新的解决方案，虽然js不是一门优秀的编程语言，但是js却拥有着及其优秀的社区，社区使得js可以不断进步。<br>
+在这里我也想求教大家，有没有什么更好的解决方案，或者这篇博客中有什么不对的地方，欢迎指正，在这里感谢各位了。</p></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/blog/web-front/2019-04-21.html" class="prev">
+          前端 api 请求缓存方案
+        </a></span> <!----></p></div> </div> <!----></div></div>
+    <script src="/assets/js/app.f6f42336.js" defer></script><script src="/assets/js/7.1522f039.js" defer></script>
+  </body>
+</html>

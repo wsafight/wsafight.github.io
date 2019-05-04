@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>前端 api 请求缓存方案 | jump-jump-docs</title>
+    <meta name="description" content="Welcome to my docs">
+    <link rel="icon" href="/img/logo.ico">
+    
+    <link rel="preload" href="/assets/css/0.styles.2bb79f07.css" as="style"><link rel="preload" href="/assets/js/app.f6f42336.js" as="script"><link rel="preload" href="/assets/js/8.4857a3b8.js" as="script"><link rel="prefetch" href="/assets/js/10.a7531174.js"><link rel="prefetch" href="/assets/js/11.c7557574.js"><link rel="prefetch" href="/assets/js/12.a15c98a1.js"><link rel="prefetch" href="/assets/js/2.3e8c2d15.js"><link rel="prefetch" href="/assets/js/3.f391912c.js"><link rel="prefetch" href="/assets/js/4.7c653218.js"><link rel="prefetch" href="/assets/js/5.f2bf7cdc.js"><link rel="prefetch" href="/assets/js/6.da901f04.js"><link rel="prefetch" href="/assets/js/7.1522f039.js"><link rel="prefetch" href="/assets/js/9.1864f8cb.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.2bb79f07.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">jump-jump-docs</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/introduction.html" class="nav-link">个人博客</a></div><div class="nav-item"><a href="/algorithm/introduction.html" class="nav-link">常用算法</a></div><div class="nav-item"><a href="/perception/introduction.html" class="nav-link">个人感悟</a></div><div class="nav-item"><a href="/about.html" class="nav-link">关于</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">了解更多</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/jgsrty" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/RtyXmd" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/0f735486a824" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  简书
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="http://47.100.53.108/#/index" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  移动端Music
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="http://47.100.53.108:9527/#/charts/pieChart" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  管理后台模板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/introduction.html" class="nav-link">个人博客</a></div><div class="nav-item"><a href="/algorithm/introduction.html" class="nav-link">常用算法</a></div><div class="nav-item"><a href="/perception/introduction.html" class="nav-link">个人感悟</a></div><div class="nav-item"><a href="/about.html" class="nav-link">关于</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">了解更多</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/jgsrty" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/RtyXmd" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/0f735486a824" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  简书
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="http://47.100.53.108/#/index" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  移动端Music
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="http://47.100.53.108:9527/#/charts/pieChart" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  管理后台模板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blog/introduction.html" class="sidebar-link">导读</a></li><li><div class="sidebar-group"><p class="sidebar-heading open"><span>web前端</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/blog/web-front/2019-05-03.html" class="sidebar-link">谈谈前端工程化 js加载</a></li><li><a href="/blog/web-front/2019-04-27.html" class="sidebar-link">从 VantComponent 谈 小程序维护</a></li><li><a href="/blog/web-front/2019-04-21.html" class="active sidebar-link">前端 api 请求缓存方案</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/web-front/2019-04-21.html#方案一-数据缓存" class="sidebar-link">方案一 数据缓存</a></li><li class="sidebar-sub-header"><a href="/blog/web-front/2019-04-21.html#方案二-promise缓存" class="sidebar-link">方案二 promise缓存</a></li><li class="sidebar-sub-header"><a href="/blog/web-front/2019-04-21.html#方案三-多promise-缓存" class="sidebar-link">方案三 多promise 缓存</a></li><li class="sidebar-sub-header"><a href="/blog/web-front/2019-04-21.html#方案四-添加时间有关的缓存" class="sidebar-link">方案四 添加时间有关的缓存</a></li><li class="sidebar-sub-header"><a href="/blog/web-front/2019-04-21.html#方案五-基于修饰器的方案四" class="sidebar-link">方案五 基于修饰器的方案四</a></li><li class="sidebar-sub-header"><a href="/blog/web-front/2019-04-21.html#总结" class="sidebar-link">总结</a></li></ul></li><li><a href="/blog/web-front/2018-04-28.html" class="sidebar-link">利用 WeakMap 对 Vue 新建数组中的对象赋予 :key</a></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="前端-api-请求缓存方案"><a href="#前端-api-请求缓存方案" aria-hidden="true" class="header-anchor">#</a> 前端 api 请求缓存方案</h1> <p>在开发 web 应用程序时，性能都是必不可少的话题。对于webpack打包的单页面应用程序而言，我们可以采用很多方式来对性能进行优化，比方说 tree-shaking、模块懒加载、利用 extrens 网络cdn 加速这些常规的优化。甚至在vue-cli 项目中我们可以使用 --modern 指令生成新旧两份浏览器代码来对程序进行优化。</p> <p>而事实上，缓存一定是提升web应用程序有效方法之一，尤其是用户受限于网速的情况下。提升系统的响应能力，降低网络的消耗。当然，内容越接近于用户，则缓存的速度就会越快，缓存的有效性则会越高。</p> <p>以客户端而言，我们有很多缓存数据与资源的方法，例如 标准的浏览器缓存 以及 目前火热的 Service worker。但是，他们更适合静态内容的缓存。例如 html，js，css以及图片等文件。而缓存系统数据，我采用另外的方案。</p> <p>那我现在就对我应用到项目中的各种 api 请求缓存方案，从简单到复杂依次介绍一下。</p> <h2 id="方案一-数据缓存"><a href="#方案一-数据缓存" aria-hidden="true" class="header-anchor">#</a> 方案一 数据缓存</h2> <p>简单的 数据 缓存，第一次请求时候获取数据，之后便使用数据，不再请求后端api。<br>
+代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>const dataCache = new Map()
+
+async getWares() {
+    let key = 'wares'
+    // 从data 缓存中获取 数据
+    let data = dataCache.get(key)
+    if (!data) {
+        // 没有数据请求服务器
+        const res = await request.get('/getWares')
+        
+        // 其他操作
+        ...
+        data = ...
+
+        // 设置数据缓存
+        dataCache.set(key, data)
+
+    }
+    return data
+} 
+</code></pre></div><p>第一行代码 使用了 es6以上的 Map，如果对map不是很理解的情况下，你可以参考
+<a href="https://es6.ruanyifeng.com/#docs/set-map" target="_blank" rel="noopener noreferrer">ECMAScript 6 入门 Set 和 Map<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 或者 <a href="http://exploringjs.com/es6/ch_maps-sets.html" target="_blank" rel="noopener noreferrer">Exploring ES6<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 关于 map 和 set的介绍，此处可以理解为一个键值对存储结构。</p> <p>之后 代码 使用 了 async 函数，可以将异步操作变得更为方便。 你可以参考<a href="https://es6.ruanyifeng.com/#docs/async" target="_blank" rel="noopener noreferrer">ECMAScript 6 入门 async函数<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>来进行学习或者巩固知识。</p> <p>代码本身很容易理解，是利用 Map 对象对数据进行缓存，之后调用从 Map 对象来取数据。对于及其简单的业务场景，直接利用此代码即可。</p> <p>调用方式：</p> <div class="language- extra-class"><pre class="language-text"><code>getWares().then( ... )
+// 第二次调用 取得先前的data
+getWares().then( ... )
+</code></pre></div><h2 id="方案二-promise缓存"><a href="#方案二-promise缓存" aria-hidden="true" class="header-anchor">#</a> 方案二 promise缓存</h2> <p>方案一本身是不足的。因为如果考虑同时两个以上的调用此 api，会因为请求未返回而进行第二次请求api。当然，如果你在系统中添加类似于 vuex、redux这样的单一数据源框架，这样的问题不太会遇到，但是有时候我们想在各个复杂组件分别调用api，而不想对组件进行组件通信数据时候，便会遇到此场景。</p> <div class="language- extra-class"><pre class="language-text"><code>const promiseCache = new Map()
+
+getWares() {
+    const key = 'wares'
+    let promise = promiseCache.get(key);
+    // 当前promise缓存中没有 该promise
+    if (!promise) {
+        promise = request.get('/getWares').then(res =&gt; {
+            // 对res 进行操作
+            ...
+        }).catch(error =&gt; {
+            // 在请求回来后，如果出现问题，把promise从cache中删除 以避免第二次请求继续出错S
+            promiseCache.delete(key)
+            return Promise.reject(error)
+        })
+    }
+    // 返回promise
+    return promise
+}
+</code></pre></div><p>该代码避免了方案一的同一时间多次请求的问题。同时也在后端出错的情况下对promise进行了删除，不会出现缓存了错误的promise就一直出错的问题。</p> <p>调用方式:</p> <div class="language- extra-class"><pre class="language-text"><code>getWares().then( ... )
+// 第二次调用 取得先前的promise
+getWares().then( ... )
+</code></pre></div><h2 id="方案三-多promise-缓存"><a href="#方案三-多promise-缓存" aria-hidden="true" class="header-anchor">#</a> 方案三 多promise 缓存</h2> <p>该方案是同时需要 一个以上 的api请求的情况下，对数据同时返回，如果某一个api发生错误的情况下。均不返回正确数据。</p> <div class="language- extra-class"><pre class="language-text"><code>const querys ={
+    wares: 'getWares',
+    skus: 'getSku'
+}
+const promiseCache = new Map()
+
+async queryAll(queryApiName) {
+    // 判断传入的数据是否是数组
+    const queryIsArray = Array.isArray(queryApiName)
+    // 统一化处理数据，无论是字符串还是数组均视为数组
+    const apis = queryIsArray ? queryApiName : [queryApiName]
+    
+    // 获取所有的 请求服务
+    const promiseApi = []
+
+    apis.forEach(api =&gt; {
+        // 利用promise 
+        let promise = promiseCache.get(api)
+
+        if (promise) {
+            // 如果 缓存中有，直接push
+            promise.push(promise)
+        } else {
+             promise = request.get(querys[api]).then(res =&gt; {
+                // 对res 进行操作
+                ...
+                }).catch(error =&gt; {
+                // 在请求回来后，如果出现问题，把promise从cache中删除
+                promiseCache.delete(api)
+                return Promise.reject(error)
+            })
+            promiseCache.set(api, promise)
+            promiseCache.push(promise)
+        }
+    })
+    return Promise.all(promiseApi).then(res =&gt; {
+        // 根据传入的 是字符串还是数组来返回数据，因为本身都是数组操作
+        // 如果传入的是字符串，则需要取出操作
+        return queryIsArray ? res : res[0]
+    })
+}
+
+</code></pre></div><p>该方案是同时获取多个服务器数据的方式。可以同时获得多个数据进行操作，不会因为单个数据出现问题而发生错误。</p> <p>调用方式</p> <div class="language- extra-class"><pre class="language-text"><code>queryAll('wares').then( ... )
+// 第二次调用 不会去取 wares，只会去skus
+queryAll(['wares', 'skus']).then( ... )
+</code></pre></div><h2 id="方案四-添加时间有关的缓存"><a href="#方案四-添加时间有关的缓存" aria-hidden="true" class="header-anchor">#</a> 方案四 添加时间有关的缓存</h2> <p>往往缓存是有危害的，如果我们在知道修改了数据的情况下，直接把 cache 删除即可，此时我们调用方法就可以向服务器进行请求。这样我们规避了前端显示旧的的数据。但是我们可能一段时间没有对数据进行操作，那么此时旧的数据就一直存在，那么我们最好规定个时间来去除数据。<br>
+该方案是采用了 类 持久化数据来做数据缓存，同时添加了过期时长数据以及参数化。<br>
+代码如下：
+首先定义持久化类,该类可以存储 promise 或者 data</p> <div class="language- extra-class"><pre class="language-text"><code>class ItemCache() {
+    construct(data, timeout) {
+        this.data = data
+        // 设定超时时间，设定为多少秒
+        this.timeout = timeout
+        // 创建对象时候的时间，大约设定为数据获得的时间
+        this.cacheTime = (new Date()).getTime
+    }
+}
+</code></pre></div><p>然后我们定义该数据缓存。我们采用Map 基本相同的api</p> <div class="language- extra-class"><pre class="language-text"><code>class ExpriesCache {
+    // 定义静态数据map来作为缓存池
+    static cacheMap =  new Map()
+
+    // 数据是否超时
+    static isOverTime(name) {
+        const data = ExpriesCache.cacheMap.get(name)
+        
+        // 没有数据 一定超时
+        if (!data) return true
+
+        // 获取系统当前时间戳
+        const currentTime = (new Date()).getTime()        
+        
+        // 获取当前时间与存储时间的过去的秒数
+        const overTime = (currentTime - data.cacheTime) / 1000
+        
+        // 如果过去的秒数大于当前的超时时间，也返回null让其去服务端取数据
+        if (Math.abs(overTime) &gt; data.timeout) {
+            // 此代码可以没有，不会出现问题，但是如果有此代码，再次进入该方法就可以减少判断。
+            ExpriesCache.cacheMap.delete(name)
+            return true
+        }
+
+        // 不超时
+        return false
+    }
+
+    // 当前data在 cache 中是否超时
+    static has(name) {
+        return !ExpriesCache.isOverTime(name)
+    }
+
+    // 删除 cache 中的 data
+    static delete(name) {
+        return ExpriesCache.cacheMap.delete(name) 
+    }
+
+    // 获取
+    static get(name) {
+        const isDataOverTiem = ExpriesCache.isOverTime(name)
+        //如果 数据超时，返回null，但是没有超时，返回数据，而不是 ItemCache 对象
+        return isDataOverTiem ? null : ExpriesCache.cacheMap.get(name).data
+    }
+
+    // 默认存储20分钟
+    static set(name, data, timeout = 1200) {
+        // 设置 itemCache
+        const itemCache = mew ItemCache(data, timeout)
+        //缓存
+        ExpriesCache.cacheMap.set(name, itemCache)
+    }
+}
+</code></pre></div><p>此时数据类以及操作类 都已经定义好,我们可以在api层这样定义</p> <div class="language- extra-class"><pre class="language-text"><code>// 生成key值错误
+const generateKeyError = new Error(&quot;Can't generate key from name and argument&quot;)
+
+// 生成key值
+function generateKey(name, argument) {
+    // 从arguments 中取得数据然后变为数组
+    const params = Array.from(argument).join(',')
+    
+    try{
+        // 返回 字符串，函数名 + 函数参数
+        return `${name}:${params}`
+    }catch(_) {
+        // 返回生成key错误
+        return generateKeyError
+    }
+}
+
+async getWare(params1, params2) {
+    // 生成key
+    const key = generateKey('getWare', [params1, params2]) 
+    // 获得数据
+    let data = ExpriesCache.get(key)
+    if (!data) {
+        const res = await request('/getWares', {params1, params2})
+        // 使用 10s 缓存，10s之后再次get就会 获取null 而从服务端继续请求
+        ExpriesCache.set(key, res, 10)
+    }
+    return data
+}
+</code></pre></div><p>该方案使用了 过期时间 和 api 参数不同而进行 缓存的方式。已经可以满足绝大部分的业务场景。</p> <p>调用方式</p> <div class="language- extra-class"><pre class="language-text"><code>getWares(1,2).then( ... )
+// 第二次调用 取得先前的promise
+getWares(1,2).then( ... )
+// 不同的参数，不取先前promise
+getWares(1,3).then( ... )
+</code></pre></div><h2 id="方案五-基于修饰器的方案四"><a href="#方案五-基于修饰器的方案四" aria-hidden="true" class="header-anchor">#</a> 方案五 基于修饰器的方案四</h2> <p>和方案四是的解法一致的，但是是基于修饰器来做。
+代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>// 生成key值错误
+const generateKeyError = new Error(&quot;Can't generate key from name and argument&quot;)
+
+// 生成key值
+function generateKey(name, argument) {
+    // 从arguments 中取得数据然后变为数组
+    const params = Array.from(argument).join(',')
+    try{
+        // 返回 字符串
+        return `${name}:${params}`
+    }catch(_) {
+        return generateKeyError
+    }
+}
+
+function decorate(handleDescription, entryArgs) {
+    // 判断 当前 最后数据是否是descriptor，如果是descriptor,直接 使用
+    // 例如 log 这样的修饰器
+    if (isDescriptor(entryArgs[entryArgs.length - 1])) {
+        return handleDescription(...entryArgs, [])
+    } else {
+        // 如果不是
+        // 例如 add(1) plus(20) 这样的修饰器
+        return function() {
+            return handleDescription(...Array.protptype.slice.call(arguments), entryArgs)
+        }
+    }
+}
+
+function handleApiCache(target, name, descriptor, ...config) {
+    // 拿到函数体并保存
+    const fn = descriptor.value
+    // 修改函数体
+    descriptor.value = function () { 
+        const key =  generateKey(name, arguments)
+        // key无法生成，直接请求 服务端数据
+        if (key === generateKeyError)  {
+            // 利用刚才保存的函数体进行请求
+            return fn.apply(null, arguments)
+        }
+        let promise = ExpriesCache.get(key)
+        if (!promise) {
+            // 设定promise
+            promise = fn.apply(null, arguments).catch(error =&gt; {
+                 // 在请求回来后，如果出现问题，把promise从cache中删除
+                ExpriesCache.delete(key)
+                // 返回错误
+                return Promise.reject(error)
+            })
+            // 使用 10s 缓存，10s之后再次get就会 获取null 而从服务端继续请求
+            ExpriesCache.set(key, promise, config[0])
+        }
+        return promise 
+    }
+    return descriptor;
+}
+
+// 制定 修饰器
+function ApiCache(...args) {
+    return decorate(handleApiCache, args)
+}
+</code></pre></div><p>此时 我们就会使用 类来对api进行缓存</p> <div class="language- extra-class"><pre class="language-text"><code>class Api {
+    // 缓存10s
+    @ApiCache(10)
+    // 此时不要使用默认值，因为当前 修饰器 取不到
+    getWare(params1, params2) {
+        return request.get('/getWares')
+    }
+}
+</code></pre></div><p>因为函数存在函数提升，所以没有办法利用函数来做 修饰器<br>
+例如:</p> <div class="language- extra-class"><pre class="language-text"><code>var counter = 0;
+
+var add = function () {
+  counter++;
+};
+
+@add
+function foo() {
+}
+</code></pre></div><p>该代码意图是执行后counter等于 1，但是实际上结果是counter等于 0。因为函数提升，使得实际执行的代码是下面这样</p> <div class="language- extra-class"><pre class="language-text"><code>@add
+function foo() {
+}
+
+var counter;
+var add;
+
+counter = 0;
+
+add = function () {
+  counter++;
+};
+</code></pre></div><p>所以没有 办法在函数上用修饰器。具体参考<a href="https://es6.ruanyifeng.com/#docs/decorator" target="_blank" rel="noopener noreferrer">ECMAScript 6 入门 Decorator<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a><br>
+此方式写法简单且对业务层没有太多影响。但是不可以动态修改 缓存时间</p> <p>调用方式</p> <div class="language- extra-class"><pre class="language-text"><code>getWares(1,2).then( ... )
+// 第二次调用 取得先前的promise
+getWares(1,2).then( ... )
+// 不同的参数，不取先前promise
+getWares(1,3).then( ... )
+</code></pre></div><h2 id="总结"><a href="#总结" aria-hidden="true" class="header-anchor">#</a> 总结</h2> <p>api的缓存机制与场景在这里也基本上介绍了，基本上能够完成绝大多数的数据业务缓存，在这里我也想请教教大家，有没有什么更好的解决方案，或者这篇博客中有什么不对的地方，欢迎指正，在这里感谢各位了。<br>
+同时这里也有很多没有做完的工作，可能会在后面的博客中继续完善。</p></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/blog/web-front/2019-04-27.html" class="prev">
+          从 VantComponent 谈 小程序维护
+        </a></span> <span class="next"><a href="/blog/web-front/2018-04-28.html">
+          利用 WeakMap 对 Vue 新建数组中的对象赋予 :key
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/assets/js/app.f6f42336.js" defer></script><script src="/assets/js/8.4857a3b8.js" defer></script>
+  </body>
+</html>
