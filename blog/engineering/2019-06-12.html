@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>震惊，使用imba.io框架,得到比 vue 快50倍的性能基准 | jump-jump-docs</title>
+    <meta name="description" content="Welcome to my docs">
+    <link rel="icon" href="/img/logo.ico">
+    
+    <link rel="preload" href="/assets/css/0.styles.2bb79f07.css" as="style"><link rel="preload" href="/assets/js/app.956cf3f6.js" as="script"><link rel="preload" href="/assets/js/2.250beb1c.js" as="script"><link rel="preload" href="/assets/js/5.db0752e2.js" as="script"><link rel="prefetch" href="/assets/js/10.a8a5287e.js"><link rel="prefetch" href="/assets/js/11.fb2785b8.js"><link rel="prefetch" href="/assets/js/12.b37b7e35.js"><link rel="prefetch" href="/assets/js/13.b2af0e51.js"><link rel="prefetch" href="/assets/js/14.7889e132.js"><link rel="prefetch" href="/assets/js/15.d9745be6.js"><link rel="prefetch" href="/assets/js/16.305e59f0.js"><link rel="prefetch" href="/assets/js/17.7527f089.js"><link rel="prefetch" href="/assets/js/18.67100fcf.js"><link rel="prefetch" href="/assets/js/19.8c6580e9.js"><link rel="prefetch" href="/assets/js/20.e4731afe.js"><link rel="prefetch" href="/assets/js/21.d43b0b12.js"><link rel="prefetch" href="/assets/js/22.fce7ec57.js"><link rel="prefetch" href="/assets/js/23.88dc394f.js"><link rel="prefetch" href="/assets/js/3.59851ec8.js"><link rel="prefetch" href="/assets/js/4.5a1a2017.js"><link rel="prefetch" href="/assets/js/6.20862db0.js"><link rel="prefetch" href="/assets/js/7.a611d615.js"><link rel="prefetch" href="/assets/js/8.929ab856.js"><link rel="prefetch" href="/assets/js/9.407e6576.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.2bb79f07.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">jump-jump-docs</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/introduction.html" class="nav-link">个人博客</a></div><div class="nav-item"><a href="/algorithm/introduction.html" class="nav-link">常用算法</a></div><div class="nav-item"><a href="/notes/introduction.html" class="nav-link">笔记</a></div><div class="nav-item"><a href="/about.html" class="nav-link">关于</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">了解更多</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/wsafight" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="/learn.html" class="nav-link">学习资源</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/introduction.html" class="nav-link">个人博客</a></div><div class="nav-item"><a href="/algorithm/introduction.html" class="nav-link">常用算法</a></div><div class="nav-item"><a href="/notes/introduction.html" class="nav-link">笔记</a></div><div class="nav-item"><a href="/about.html" class="nav-link">关于</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">了解更多</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/wsafight" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="/learn.html" class="nav-link">学习资源</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blog/introduction.html" class="sidebar-link">导读</a></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>web前端</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/blog/web-front/2019-05-09.html" class="sidebar-link">利用 es6 new.target 来对模拟抽象类</a></li><li><a href="/blog/web-front/2019-05-03.html" class="sidebar-link">谈谈前端工程化 js加载</a></li><li><a href="/blog/web-front/2019-04-21.html" class="sidebar-link">前端 api 请求缓存方案</a></li><li><a href="/blog/web-front/2018-04-28.html" class="sidebar-link">利用 WeakMap 对 Vue 新建数组中的对象赋予 :key</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>小程序</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/blog/mini-program/2019-05-13.html" class="sidebar-link">小程序绑定用户方案 优化</a></li><li><a href="/blog/mini-program/2019-04-27.html" class="sidebar-link">从 VantComponent 谈 小程序维护</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading open"><span>工程思考</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/blog/engineering/2019-06-12.html" class="active sidebar-link">震惊，使用imba.io框架,得到比 vue 快50倍的性能基准</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/engineering/2019-06-12.html#imba-简单介绍" class="sidebar-link">imba 简单介绍</a></li><li class="sidebar-sub-header"><a href="/blog/engineering/2019-06-12.html#imba-框架极速的性能基础" class="sidebar-link">imba 框架极速的性能基础</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/engineering/2019-06-12.html#理论基础" class="sidebar-link">理论基础</a></li><li class="sidebar-sub-header"><a href="/blog/engineering/2019-06-12.html#框架实践" class="sidebar-link">框架实践</a></li></ul></li><li class="sidebar-sub-header"><a href="/blog/engineering/2019-06-12.html#imba-框架“虚假”的性能测试" class="sidebar-link">imba 框架“虚假”的性能测试</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/engineering/2019-06-12.html#浏览器的运行机制" class="sidebar-link">浏览器的运行机制</a></li><li class="sidebar-sub-header"><a href="/blog/engineering/2019-06-12.html#真实世界的内存限制" class="sidebar-link">真实世界的内存限制</a></li></ul></li><li class="sidebar-sub-header"><a href="/blog/engineering/2019-06-12.html#imba-框架与浏览器的畅想" class="sidebar-link">imba 框架与浏览器的畅想</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/engineering/2019-06-12.html#google-io-大会-chorme-portals-技术" class="sidebar-link">Google io 大会 chorme Portals 技术</a></li><li class="sidebar-sub-header"><a href="/blog/engineering/2019-06-12.html#js引擎-与-渲染引擎的关联" class="sidebar-link">js引擎 与 渲染引擎的关联</a></li></ul></li><li class="sidebar-sub-header"><a href="/blog/engineering/2019-06-12.html#参考资料" class="sidebar-link">参考资料</a></li></ul></li><li><a href="/blog/engineering/2019-06-03.html" class="sidebar-link">探讨奇技淫巧</a></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="震惊，使用imba-io框架-得到比-vue-快50倍的性能基准"><a href="#震惊，使用imba-io框架-得到比-vue-快50倍的性能基准" aria-hidden="true" class="header-anchor">#</a> 震惊，使用imba.io框架,得到比 vue 快50倍的性能基准</h1> <p><img src="/assets/img/imba-logo.947e4c2c.png" alt="imba 速度图片"></p> <p>我是标题党吗？是，但也不是。以图为证。</p> <p><img src="/assets/img/imba.io.speed.d600c623.jpg" alt="imba 速度图片"></p> <p>上图表示了vue, react 以及 imba 在 todo 这个项目中拥有60个 todoItem 不同进行 crud 操作的表现。可以看到 imba 达到了每秒操作5w次以上。如果你也想试一试该测试,可以访问 <a href="https://somebee.github.io/dom-reconciler-bench/index.html" target="_blank" rel="noopener noreferrer">Todos Bench<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。测试使用的是 <a href="https://benchmarkjs.com/" target="_blank" rel="noopener noreferrer">Benchmark.js<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。</p> <h2 id="imba-简单介绍"><a href="#imba-简单介绍" aria-hidden="true" class="header-anchor">#</a> imba 简单介绍</h2> <p>imba 是一种新的编程语言，可以编译为高性能的 JavaScript。可以直接用于 Web 编程(服务端与客户端)开发。<br>
+下面是语法：</p> <div class="language- extra-class"><pre class="language-text"><code>// 自定义标签
+tag App
+    // 属性
+	prop items
+
+    // 方法定义
+	def addItem
+		if @input.value
+			items.push(title: @input.value)
+			@input.value = &quot;&quot;
+
+	def toggleItem item
+		item:completed = !item:completed
+
+// 挂载 Imba.mount(element, into) 
+// 如果没有第二个参数，默认挂载到 document.body 上面
+Imba.mount &lt;App.vbox items=[] -&gt;
+	&lt;form.bar :submit.prevent.addItem&gt;
+		&lt;input@input&gt;
+		&lt;button&gt; 'add'
+	&lt;ul&gt; for item in items
+		&lt;li .done=item:completed :tap.toggleItem(item)&gt; item:title
+</code></pre></div><p>可以看出作者喜欢 ruby 以及 pug与，偏向于缩进类风格(个人并不是很喜欢这种语法风格)。具体语法可以参考 <a href="http://imba.io/guides/essentials/introduction" target="_blank" rel="noopener noreferrer">imba 文档<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。当然了，因为可以编译成js，所以服务端编译成 js 进行node开发也是可以实现的。</p> <h2 id="imba-框架极速的性能基础"><a href="#imba-框架极速的性能基础" aria-hidden="true" class="header-anchor">#</a> imba 框架极速的性能基础</h2> <p>任何一个实现的性能优化都有其理论基础，那么 imba 性能那么快的基础究竟是什么呢？答案也就是  memoized DOM（记忆DOM）。</p> <h3 id="理论基础"><a href="#理论基础" aria-hidden="true" class="header-anchor">#</a> 理论基础</h3> <p>浏览器的 DOM 操作可以说是浏览器最终要的功能，无论框架是基于虚拟 DOM 或者是真实 DOM，最终离不开操作 DOM 对象。<br>
+HTML DOM 是浏览器定义了访问和操作 HTML 文档的标准方法。但是操作 DOM 的接口是 JavaScript。但是浏览器通常会把 js 引擎和渲染引擎分开实现。也就是页面实际渲染部分是和解析js部分分开的。
+借着《高性能的 JavaScript》话说，如果把 DOM 和 js 各自想象为岛屿。他们需要一座桥进行沟通。所以每一次执行 DOM 操作就过桥一次。<br>
+那我们先谈谈虚拟DOM，虚拟DOM 的性能提升在于是将 DOM 的对比放在了js层。进而通过对比不同之处来进行实际的 DOM 渲染。也就是说，其实虚拟DOM 并没有“实际”的性能收益，桥仍旧还在那边。仅仅在 js引擎需要过桥的那边找到了一位聪明睿智的大叔,对过桥的人和过桥的货物进行优化和限制(虚拟DOM 高性能的diff算法，状态批量更新)。<br>
+那么 memoized DOM 又是怎么做的呢？把 DOM 节点的控制直接放入内存之中。类似于此类优化.</p> <div class="language- extra-class"><pre class="language-text"><code>function getEls(sel) {
+    // 设置缓存
+    if (!getEls.cache) getEls.cache = {};
+    
+    // 如果缓存中存在 el，直接返回 
+    if (getEls.cache[sel]) {
+        return getEls.cache[sel];
+    }
+
+    // 没有去通过 DOM 查询
+    const r = document.querySelectorAll(sel || '☺'),
+        length = r.length;
+    
+    // 缓存并返回元素节点
+    return getEls.cache[sel] = (length == 1) ? r[0] : r;
+}
+</code></pre></div><p>我们可以测试一下。这里我写一个 getElsByDocument 以及 simplePerTest。</p> <div class="language- extra-class"><pre class="language-text"><code>// 直接通过 querySelectorAll 获取节点
+function getElsByDocument(sel) {
+    const r = document.querySelectorAll(sel || '☺'),
+        length = r.length;
+    return length == 1 ? r[0] : r;
+}
+
+// 简单性能测试
+function simplePerTest(fn, el) {
+    const fnName = fn.name
+    console.time(fnName)
+    
+    // 2000 次操作
+    for(let i = 0,len = 2000; i &lt; len; i++) {
+        fn(el)
+    }
+    console.timeEnd(fnName)
+}
+</code></pre></div><p><img src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAbUAAAB/CAYAAABorly7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABZLSURBVHhe7Z3Pq1XXGYbvX1Ho1D+h0GHmhY6SYekoo9KRo9KJEGgdiJM6MEIgaNBScZRJcFBRUFId1EFDKMRYIpQITTTeJpCgUHZ5Nve9ef1ca59zPOfqufu+D3ycvdePb31r7bO/96zjcd+dIYQQQpgJEbUQQgizIaIWQghhNkTUQgghzIad3d3dIRaLxWKxOVh2aiGEEGZDRC2EEMJsiKiFEEKYDRG1EEIIsyGiFkIIYTYcqKh9//33w/Hjx4crV67slYRV+fzzz4cTJ06Ma3lU+c9f/jx89tvfDP87wDW4c+fOcOrUqb2zEMJhZRS1u3fvDo8ePRoLNskmRY2kc+zYsdGW9Uc79cHWSVrffPPN8NZbbz3nD1t3bsTE3Fow5ttvvz0K27oQZyvWukZcL66bz1dlB8mzx4+Hf/zyF8N///bxXsmPbFLU8IEvfFa4FutezxDC62Xnhx9+GM6fPz+89957w8OHD/eKt5decm7hbZWkewKyLBLqdf2IKVHbZJLtrVuvXLyqneKUqG2SKVHb5IeIEMLrYdypffvtt8OlS5eGc+fODQ8ePBgrlsV3UG+88cZ+QvByT5rUIwokD0Tm7NmzYxvaU0cip54y6kk0TisJ04+xa5/a1kVC4qQYJSz0pVxxeR30RK0XQx2HGMDXR+b9FIfOBee0836aUysGL5P5daprVKFdFbUaw1T/ZUFs/vX73w3f3/tsr+RHofv4pz95bqdGG87/+etfjfX/PvOnsY0EkVfOZX//+c+e8/vgj3/oiuei9QghbDf7/6ZG0rp8+fLw7rvvDvfu3dsrnYY+JDwlyBY1SSjJ3rhxY0zaEhpMdRIMyiQCovqryZ++nBObt6XeP4XjV+N4nRK2+lHmSZ1X/LuoTcXAcZ2D43E4vX6UKTYfZyoG8LVwKHPB8z5Q5w89XwcFgoTguaghVN9c++sobogUOy8MIUTsJGKqW5a6biGEw8VaogYkWZJhKzFDTYBKkiRfCaLa1AS6TEJlXE/Knphp5+WKkbHrbke7lyoOFfxS7/OdigGf+O4lyk2J2lQMUNdN9MpF6xporFZ8B0FL1DhHwLS725SoteYbQjg8rP31o+iJW02aShrLiJonbVH90aaXXGtbMSVcLytqixI8c2uJG/3qmkHPJ/ORaEmIYVEMvbXolYt6TRzGfBXitoqo0Ybdm7569K8tl2GZaxlC2F42+kORVoKsZUqSy4gayWWRP/z0/nG/tnVavuFlRG0qBqfle5U4GFtrVlkUA2O0kvXUGkG9JpVWPf5ccNdlFVGrbVdl0XqEELabtX7STyL1r/H04wQgMahchhAoCdJOCVqJhGOSodp7Eu75A+0YZEpK8tuixq4dFOWrihpMxdAqFz5nXz/oibr7q7s1r/O+Pl/vU/1pHeq1wHQ9ePXy3lrU8lVBoPi3M//RB18nTola3alhy+7WWKNlPpyEELaX/X9T2wZIJlO7gqNGTbKcV8FtCd/rhnjffPPN1yIO/KoR4RP139im2Ma1DCGsRkRty6lrUndJ2j1tC8TjO8FXDSKm/wYgW+b/vrGr3La1DCGszlaJWgghhLAOEbUQQgizIaIWQghhNuzs7u4OsVgsFovNwbJTCyGEMBsiaiGEEGZDRC2EEMJsiKiFEEKYDRG1EEIIsyGiFkIIYTa8NlHjkUT1gbf+0F2Z2ughudhBP5/Px1rm0Ul6yLH6YK24MT0wGPxhwvXRUl7nMXi5103FALSr5a319ji8T+thy5TXa+Hz9blOrUMIIWyKrRM1kp0nzwpJtCbSTUJC5yHCioE4F41HctZfHKgwR3wsgnZK9H4Mvla9+U/FQHvFwLx6T6L39a8xaFzOKde8PBbqKKO/2qle7UMI4SBZW9RIVv4JvPdJ35Obt8e0C/Ck2kPJ1XGfdceDL/zXPj3cvxKzJ/cW1K0raoypdh4DuI9aJ3ox1HJeWaOWD/dNOz1pX+tAHA4xtfwI99dbB/zjG6HlOp09e3a8jhqL/vV9EkIIPdYSNRKMf+r3JOcJrZUUaVuTpARIScyTm3C/MCUosKqoKS71u3DhwuifcXpoforZRRBfU/NhPMo9YROrBEC+dU6dfLmA92LAJ8e8MjbjIBx1Pbyd4Jj29YOCIKbeuioezbe3DvjF/40bN8b28om1YgohhCkORNRqgq2JDGjr57BMElPCc/BV/b8s+Proo4/254UtErUKPrAKvnp/Z4zYJWy+fiR8hLXlz/tUFIPWlDnxiu/WGnLuY9AP34xBvMRR15f21Y/Q+C18HTDWl/H04UTxaR16ohpCCJW1RK2Kl5ImNrV7AhJeTZJKwK0kLZTwWuBzXXHDtydRfGley0KfVkKfWhfm3Pu3rt6cp9ZLMega+Rwod3+tsan3ObTWofoRlE+tma8D1hM1oTlE3EIIi1hL1JSQWsmrJsVKKyFOJWlRE16l1uOLHcdUH8fnpGTa8tebW6uPQBh6O6ueeBIPgtPqwxitPjUGXnWMv7pbpK7Op8bTatO6hpy3YnJ8HbTeHPdETTAefUMIocdGd2p1t+Z1NZmTvPjk7XUYx+qDKYmR5LxcdbVPHUf1rSTZw8eqiVz+vLzG4GO5rxobPlTnQuD+XqYP5jHUa+HCQL/eDrE3lpdj2kH5NZUp/t460KcnatWfxxBCCC3WEjWSY03uvQQZQgghHDRr/1DEdwdYvh4KIYTwulhL1EIIIYRtIqIWQghhNkTUQgghzIad3d3dIRaLxWKxOVh2aiGEEGZDRC2EEMJsiKiFEEKYDRG1EEIIsyGiFkIIYTbMRtTu3r07nD59ev+ZgiGEEI4e+6L23XffDV988cXe2asDETp37tzSYnT16tXhnXfeGe3ixYt7pQcnaoyHhRBC2H5GUXvy5Mn4l4dv3rw5PHv2bKx4VawiaqsK4CaIqIUQwuFh5/Hjx8P169eHW7durfxnParIsFvS7gkh+PDDD4eTJ0++sKtiHPppx+U7LHyonDYe0/3794f333//uTL3VXdqq8TAuMJjwCJqIYRwONi5du3acPv27eHp06djwVdffTWK3Ndffz2eT7FI1CQy2JkzZ0ZRAtpIKNxHFS3a0JY6fLnQIFTyB+5HLIpBQuZ1GMfygw/FGkIIYbt5QdQQs02JmsQAkUKsEIzax89p78KFyR/Qv+7URPULUzH0RNL7QD0PIYSwvRzo148Sg1VEbUpANilqta2oMdTzEEII28taPxRBFPS1HcfsfhaJGscIir76o72+IqTev/qrbErUgHFbYkVc+KE9bdnBtdqFEELYPtb+ST8JX1/f8aOMRaIGCIe+9kNMXYzkTybxg5ao0a9+lShRmoqh9lMfjGOVMSf5CCGEsN3M5j9fhxBCCBG1EEIIsyGiFkIIYTZE1EIIIcyGiFoIIYTZsLO7uzvEYrFYLDYHy04thBDCbIiohRBCmA0RtRBCCLMhohZCCGE2RNRCCCHMhgMVNZ6jePz48eHKlSt7JWFVPv/88+HEiRPjWoajzX/+8ufhs9/+ZvjfAb4X7ty5M5w6dWrvLITDxyhqPDT40aNHY8Em2aSocbMdO3ZstGX90U59sHVuVh6A/NZbbz3nD1t3bsTE3Fow5ttvvz0K27oQZyvWukZcL66bz1dli6hrxDFlU7xMn21i6vq9DP/928fDP375i+HZ48d7JT+ySVHDB77wWWFO676vQ3hd7Pzwww/D+fPnh/fee294+PDhXvH20kvOLbytkue6CUhCvalENpUUN5lceuvWKxer7BRZY9ZGooRf5jBF7cNaHCZhe5WitkmmRI2139SHqRBeNeNO7dtvvx0uXbo0/qmVBw8ejBXLwg2tT9lvvPHG/o3g5Z40qSeJcdOQvM6ePTu2oT11JAnqKWslt1YSph9j1z61rYuExEkxKjHRl3LF5XXQE7VeDHUcJXlfH5n3Uxw6F5zTzvtpTq0YvEzm16muUYV2VdRqDOpfY5ZvzmuS1LWofer60kbjUO5xtOqqP/wwlsox5n/hwoXnYq/XSeMTc+s9uej6vSzf3/ts+Nfvf/fcbgyBQ+g+/ulPntup0Zbzf/76V2P9v8/8aWyDMAKvnMv+/vOfjX3Egz/+Yb9thXXR2oRwmNj/NzVu6suXLw/vvvvucO/evb3SaehDwvNkVak3B21JKvwdNRKFkhumOk9oEgFR/bWSGOfE5m2p98SKX43jdRyTnNSPMk/qSn7qC1MxcFzn4HgcTq8fZYrNx5mKAXwtHMo8MXsfqPOHni+tXcuX9/FYa9ygObbmoDWpdaL60zpyruvKOW14D8ofr7QF2ur9gPl7knaaB3i/g6YKHucI1TfX/jqKGyLFzgtDCBE7iZjqlqW3viFsO2uJGnBTk8B6NzYJwJOAkiSJQ4KoNjWB1nOo/hhXSbQmU9p5uWJUgvM67V6o86RYwS/1Pt+pGPCJ716C6CVFyqireFKljfxOxQB13USvXLSugcaq8dW1w6/auB/6a8zWemuONTb3QRv8VKo/2tDWy9XX63rvhzr/GlMvjoOgJWqcI2C8cr4pUWtd9xAOA2t//Si4uUkG9QbvJSYSCa+cq029kfDliRmqPyWmFrWt8ARXmaoDYqHe5zkVg2BuLXHrJcWeT+ZTEy8siqG3Fr1yUa+Jw5jEoXHr2tW+fKVL2QcffLDfpvbx9a2xub/eulV/WhcvV99WXaXOocbUi+MgWEXUaMPuTV89+teWy6C1CeGwsdEfitQbHmqZkgQJhFfO1aYmEG6qRf7wU/+9RtS2Tss3TCU48KQrpmJwWr5XiYOxtWaVRTEwRitJTa0R1GtS8foacx2TNUPYEDXR6sM5/mivY8CX/Hk7x9eBY3Zg9PFxOMe3J25eW+tQ508bb9frB5T7B491WUXUattVqfMM4bCw1k/6lTS0c+CYMuCGULmMJKIkQTslaN1AHJME1F4JB3r+gFcv180ovy1q7EqQlCv5taAN9RpbTMXQKhc+Z18/aCXM6q/u1rzO+/p8vU/1p3Wo1wJzAfByrUVvTYXqfe0W9fGxlq3TnIifH4TQjnFowyvnxIBxDL04WIcpUZu6froePt+XAYHi3878Rx98nTglanWnhi27W2MOy3xIC2Eb2f83tW2gJpCjTk0unCsxC5KyJ9lt5qhdX+b75ptvvhZx4FeNCJ+o/8Y2xWF6T4VQiahtOXVNSDjaTWDaaWwzzIHdTN3JzBmui++IXzWImP4bgKz3833Hd68hHEa2StRCCCGEdYiohRBCmA0RtRBCCLNhZ3d3d4jFYrFYbA6WnVoIIYTZEFELIYQwGyJqIYQQZkNELYQQwmyIqIUQQpgNEbUQQgiz4bWJGo/iqQ965RFK/lBZTG30cFhs2efS0c59LdPvZfpsC61nQ66DP5KrPuJKdcuuD4/5Ijb582tf11yPaarvB3/slB69pTqPQ/1aj6nyOS0Tg5BPPehYeBxe5/4UR10DmeJYFEMIYTFbJ2qLkjI3viewKbwtPpd58rj3URJadrzXzTLrtyxcm5qkMa0J9VzDZdfG29Y45bvSm4/HAN6O68t1vn///gvXmzEkFLT1+l4Mgn48g9Ofw6mxany1XGtVwQ/+lo0hhLCYtUWNG9Y/XfqnY25kletmre0x7QKwVhJzWje++/Txva37rknHk2T1Txl1tFE7jeXtenXuz5MYRnviYP78nTH6MR74nDQ+0I4/p1LH8bWWeSJlrozjMU9BfHrCvOam2AT+l/Hn8xb0lT9fI8evWYX+mp9fI0EfF60aA6+8VzRuLwaQ/08++eQ5UfM5OFpr1fXWiXrNAXoxaK5cU66/7xg1lq55bw4hHBXWErWaOPzm9RuUm68mRdrWhFBvUKy2cb9Qk5VDu54vH5++SlbVP3USQJ9fnZPXOe7PY8VIqjdu3Bj9qD/m8QBl1AOvSmgeG/BKnc4dra1iWQb18Q8KTm/OlbpWmrvO8aFr5GNpfNVpDYT61XKgr783OdfaMC5+EQjFPxWD/GC6LrqWrQ8YoDlTrnk66q9xoBeDrjnvFa2b5kIfHzeEo86BiJrf0G5+c9O23uyeeHq0bmJ8Vf/gbWustFUypI36Vv+0px9/FbyVhLCpuN2fJzKMY/qoTG2xunaK1detjjsVx6rgg8TPWMTmIiSIRXNbhHwwF2JkztUfUMa4dQ56T2k8XjmnnDh0LOjfErWPPvpov63WuuIx+Bx1zeir9dF18fE8VrWr4zBGjdmpMXCOcUwZfXmlzN8fIRx11hI13bxKvLpJMSXqHrpRHb9Ze/QSEeCTOOS3tvUxiZHzL7/8cvy0reRS+9CemB4/fvzCnNR2Km735+uiBEkflamt96n4HOq4U3GsCuMzltA6aJ2A+l6cU0y9P6bmoHWhzgULf/TRukCvjc+hF79i+OKLL0Zh0ftbhjh/+umnL8xB16auFW2IRXNqxVtRDLy6X469TlBHbNSHcJRZS9S4WbmxdfM6NSlWqKsJpXWzVpTYeni9H+PTkxxQh6Dx6V3UPiQ1JR+P2euUpFTnUKZ14FhfK2nt8FNFjWNPgg6+FA/1vl681jkK6lo7hh6MgW9dW5+HaF1DoEzzbNHyJajzcYXi9/X2dajzbpXhW/FS3vur1L0YaOvvd5+/j4f59atrWc9beAy65hjH+KVO/kWNL4SjyEZ3aphuxFpHQvKbkBtQX0epDuNYfTAlLm5yL1dd7ePj1D7yJYihJrapPnUsJTTo1Xk5CUcCpgREvcroo369OJTggL41uXk/Fw7FIf/LQH/50nWt5VgVMMaoZcSs9h4X9Mahv94jmF+LXp2vt6z3nnR/vRgcxnTRmPLn14F4dI3Ux9uKqfWmPcaxX3fvg7X8hnCUWEvUdJMJbrLeTmEbqfGHEEI43Kz9Q5H6qfgwfFIkRmLtfSIPIYRwOFlL1EIIIYRtIqIWQghhNkTUQgghzIad3d3dIRaLxWKxOVh2aiGEEGZDRC2EEMJsiKiFEEKYDRG1EEIIsyGiFkIIYTbMRtTu3r07nD59ev8ZeyGEEI4e+6L23XffjX9q41WDCJ07d25pMbp69erwzjvvjHbx4sW90oMTNcbDQgghbD+jqD158mT8q7o3b94cnj17Nla8KlYRtVUFcBNE1EII4fCwwx+/vH79+nDr1q2VH+5bRYbdknZPCMGHH344nDx58oVdFePQTzsu32HhQ+W08Zju378/vP/++8+Vua+6U1slBsYVHgMWUQshhMPBzrVr14bbt28PT58+HQu++uqrUeS+/vrr8XyKRaImkcHOnDkzihLQRkLhPqpo0Ya21OHLhQahkj9wP2JRDBIyr8M4lh98KNYQQgjbzQuihphtStQkBogUYoVg1D5+TnsXLkz+gP51pyaqX5iKoSeS3gfqeQghhO3lQL9+lBisImpTArJJUattRY2hnocQQthe1vqhCKKgr+04ZvezSNQ4RlD01R/t9RUh9f7VX2VTogaM2xIr4sIP7WnLDq7VLoQQwvax9k/6Sfj6+o4fZSwSNUA49LUfYupiJH8yiR+0RI1+9atEidJUDLWf+mAcq4w5yUcIIYTtZjb/+TqEEEKIqIUQQpgNEbUQQgizIaIWQghhNkTUQgghzIad3d3dIRaLxWKxOVh2aiGEEGZDRC2EEMJMGIb/A8Xycl/l+1FsAAAAAElFTkSuQmCC" alt="dom 速度测试图片"></p> <p>这个缓存的节点查询可要比 querySelectorAll 快了 140倍以上啊，随着 img 节点越多，得到的性能提升也越高啊。如果imba 框架中所有的节点都在内存中呢？同时，我们还会得到一个 js 运行时优化( GC 的大量减少),因为虚拟DOM 要维护一个树，在进行多次 crud 之后就会产生大量无用对象从而导致浏览器进行 GC,而 memoized DOM 在多次 crud 不会进行多次 GC。(可能会在渲染引擎中 GC?但我感觉渲染引擎中GC 要比JS 中影响要小很多。挖个坑，研究完渲染引擎再来探讨一下)</p> <h3 id="框架实践"><a href="#框架实践" aria-hidden="true" class="header-anchor">#</a> 框架实践</h3> <p>实例如下所示：</p> <div class="language- extra-class"><pre class="language-text"><code>tag Component
+	def render
+		&lt;self&gt;
+			&lt;h1.title&gt; &quot;Welcome&quot;
+			&lt;p.desc&gt; &quot;I am a component&quot;
+</code></pre></div><p>上面的自定义组件会编译成下面的js</p> <div class="language- extra-class"><pre class="language-text"><code>var Component = Imba.defineTag('Component', function(tag){
+    tag.prototype.render = function (){
+        var $ = this.$;
+        // 返回dom
+        return this.setChildren($.$ = $.$ || [
+            createElement('h1',$,0,this).flag('title').setText(&quot;Welcome&quot;),
+            createElement('p',$,1,this).flag('desc').setText(&quot;I am a component&quot;)
+        ]).synced();
+    };
+});
+</code></pre></div><p>仔细观察一下这里的函数，你会看到该组件在第一次调用渲染时，将使用 createElement 创建两个子节点，并设置它们的属性并且缓存。第二次或者第一万次调用时，children-array将被缓存，不会发生任何调用。</p> <div class="language- extra-class"><pre class="language-text"><code>// 在第一次调用时候 $.$不存在  $.$会等于 后面的数组
+// 第二次调用 $.$ 是存在的，无运行时消耗
+$.$ = $.$ || 数组
+</code></pre></div><p>其中查看源码，我们可以看到 setChildren 函数都是对真实DOM 进行了操作。获取之前的DOM节点进行一系列操作后将当前节点返回并缓存。</p> <div class="language- extra-class"><pre class="language-text"><code>tag.prototype.setChildren = function (new$,typ){
+
+	var old = this._tree_;
+	
+	if (new$ === old &amp;&amp; (!(new$) || new$.taglen == undefined)) {
+		return this;
+	};
+	if (!old &amp;&amp; typ != 3) {
+		this.removeAllChildren();
+		appendNested(this,new$);
+	} else if (typ == 1) {
+		var caret = null;
+		for (var i = 0, items = iter$(new$), len = items.length; i &lt; len; i++) {
+			caret = reconcileNested(this,items[i],old[i],caret);
+		};
+	} else if (typ == 2) {
+		return this;
+	} else if (typ == 3) {
+		var ntyp = typeof new$;
+			
+		if (ntyp != 'object') {
+			return this.setText(new$);
+		};
+			
+		if (new$ &amp;&amp; new$._dom) {
+			this.removeAllChildren();
+			this.appendChild(new$);
+		} else if (new$ instanceof Array) {
+			if (new$._type == 5 &amp;&amp; old &amp;&amp; old._type == 5) {
+				reconcileLoop(this,new$,old,null);
+			} else if (old instanceof Array) {
+				reconcileNested(this,new$,old,null);
+			} else {
+				this.removeAllChildren();
+				appendNested(this,new$);
+			};
+		} else {
+			return this.setText(new$);
+		};
+	} else if (typ == 4) {
+		reconcileIndexedArray(this,new$,old,null);
+	} else if (typ == 5) {
+		reconcileLoop(this,new$,old,null);
+	} else if ((new$ instanceof Array) &amp;&amp; (old instanceof Array)) {
+		reconcileNested(this,new$,old,null);
+	} else {
+		// what if text?
+		this.removeAllChildren();
+		appendNested(this,new$);
+	};	
+	this._tree_ = new$;
+	return this;
+};
+</code></pre></div><p>如果我们使用了动态属性。代码如下</p> <div class="language- extra-class"><pre class="language-text"><code>tag Component
+    def render
+        &lt;self&gt;
+            &lt;h1.title&gt; &quot;Welcome&quot;
+            # 有 50% 几率 拥有 red class
+            &lt;p.desc .red=(Math.random &gt; 0.5)&gt; &quot;IMBA&quot;
+</code></pre></div><p>可以得到如下代码，详细查看可以看出，imba 提取了可变量，放入了 synced 函数中，每次渲染中只会执行 synced 里面的数据，所以依然会得到极高的渲染速度</p> <div class="language- extra-class"><pre class="language-text"><code>var Component = Imba.defineTag('Component', function(tag){
+    tag.prototype.render = function (){
+        var $ = this.$;
+        return this.setChildren($.$ = $.$ || [
+            _1('h1',$,0,this).flag('title').setText(&quot;Welcome&quot;),
+            _1('p',$,1,this).flag('desc').setText(&quot;Roulette&quot;)
+        ],2).synced((
+            $[1].flagIf('red',Math.random() &gt; 0.5)
+        ,true));
+    };
+});
+</code></pre></div><p>精确的抽取不可变量，然后无需虚拟DOM 计算，同时对于真实DOM 还进行了缓存，我们可以看出 memoized DOM 与 虚拟DOM 不同，memoized DOM 是具有实际的性能收益。</p> <h2 id="imba-框架“虚假”的性能测试"><a href="#imba-框架“虚假”的性能测试" aria-hidden="true" class="header-anchor">#</a> imba 框架“虚假”的性能测试</h2> <p>我们在上面看到了 imba 框架的理论基础，那么他是否真的比vue快50倍？当然不是，这也就是在上面说我是标题党的原因。</p> <h3 id="浏览器的运行机制"><a href="#浏览器的运行机制" aria-hidden="true" class="header-anchor">#</a> 浏览器的运行机制</h3> <p>浏览器本身只能达到 60 fps( 1 秒刷新了60次 )。当然了，其实对于体验而言，60fps的体验已经差不多够用了，也就是浏览器渲染上大概需要 17ms 去渲染一次。事实上无论是每秒操作dom 5w次还是 1000次，浏览器渲染引擎也只会记录当前的脏数据。然后在需要渲染时候再进行重绘与重排。</p> <h3 id="真实世界的内存限制"><a href="#真实世界的内存限制" aria-hidden="true" class="header-anchor">#</a> 真实世界的内存限制</h3> <p>面对 memoized DOM 的缓存优化以及更少 GC 带来的运行时提升，我们需要更多内存来对每一个 dom节点进行缓存。这个在初始化渲染时有大量的消耗。同时我们的浏览器执行速度和渲染速度已经足够快了，虚拟DOM已经完全够用了。</p> <h2 id="imba-框架与浏览器的畅想"><a href="#imba-框架与浏览器的畅想" aria-hidden="true" class="header-anchor">#</a> imba 框架与浏览器的畅想</h2> <h3 id="google-io-大会-chorme-portals-技术"><a href="#google-io-大会-chorme-portals-技术" aria-hidden="true" class="header-anchor">#</a> Google io 大会 chorme Portals 技术</h3> <p>单页应用程序（Single Page Applications，SPA）提供了很好的页面交互，但代价是构建的复杂性更高，多页面应用程序（Multi-page Applications，MPA）更容易构建，但最终会在页面之间出现空白屏幕。</p> <p>Portals 结合了这两者的优势，主要用于改进网页交互体验，目标是无缝导航。它类似于 iframe ，内嵌在网页上，但可以导航到页面内容上。用户在一个页面跳转另一个内容时，虽然 URL 相应地发生变化，但是不需要打开另一个窗口，此时该内容标记的 Portals 会变成原来页面的顶级页面，同时原来页面在其后保持主进程地位。现场演示了这对于购物体验的极大便利，此外还有对漫画这类单页面应用的演示。</p> <p><img src="/assets/img/chorme-portals.427a443f.jpg" alt="Chorme Protals 技术"></p> <h3 id="js引擎-与-渲染引擎的关联"><a href="#js引擎-与-渲染引擎的关联" aria-hidden="true" class="header-anchor">#</a> js引擎 与 渲染引擎的关联</h3> <p>在之前，浏览器 js引擎和渲染引擎是没有任何关联的，我们去写动画只能通过 setTimeout 或者 setInterval，更加没有办法知道浏览器什么时候处于空闲状态,但是随着时间的发展，我们可以通过 requestAnimationFrame 和 requestIdleCallback。requestAnimationFrame 要求浏览器在下次重绘之前调用指定的回调函数更新动画。requestIdleCallback方法将在浏览器的空闲时段期间对要调用的队列函数进行执行。<br>
+那么内置DOM 操作是否能够在js引擎中，是否能够减少过桥的性能消耗或者完全把桥打通。让我们拭目以待。</p> <h2 id="参考资料"><a href="#参考资料" aria-hidden="true" class="header-anchor">#</a> 参考资料</h2> <p><a href="https://www.cnblogs.com/libin-1/p/6376026.html" target="_blank" rel="noopener noreferrer">高性能JS-DOM<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a><br> <a href="http://imba.io/guides/advanced/performance" target="_blank" rel="noopener noreferrer">imba 性能篇<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <div id="vcomments"></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/blog/mini-program/2019-04-27.html" class="prev">
+          从 VantComponent 谈 小程序维护
+        </a></span> <span class="next"><a href="/blog/engineering/2019-06-03.html">
+          探讨奇技淫巧
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/assets/js/app.956cf3f6.js" defer></script><script src="/assets/js/2.250beb1c.js" defer></script><script src="/assets/js/5.db0752e2.js" defer></script>
+  </body>
+</html>
