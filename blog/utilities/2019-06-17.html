@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>手把手教你使用issue作为博客评论系统 | jump-jump-docs</title>
+    <meta name="description" content="Welcome to my docs">
+    <link rel="icon" href="/img/logo.ico">
+    
+    <link rel="preload" href="/assets/css/0.styles.d24be81f.css" as="style"><link rel="preload" href="/assets/js/app.d3318e7b.js" as="script"><link rel="preload" href="/assets/js/2.104036b8.js" as="script"><link rel="preload" href="/assets/js/5.430c2856.js" as="script"><link rel="prefetch" href="/assets/js/10.7414977c.js"><link rel="prefetch" href="/assets/js/11.72d68755.js"><link rel="prefetch" href="/assets/js/12.572cd4ca.js"><link rel="prefetch" href="/assets/js/13.651d1c8e.js"><link rel="prefetch" href="/assets/js/14.1dd8ea3a.js"><link rel="prefetch" href="/assets/js/15.bc9facef.js"><link rel="prefetch" href="/assets/js/16.1c64283f.js"><link rel="prefetch" href="/assets/js/17.3a703f13.js"><link rel="prefetch" href="/assets/js/18.7eea5f2e.js"><link rel="prefetch" href="/assets/js/19.351b9427.js"><link rel="prefetch" href="/assets/js/20.52dc19ef.js"><link rel="prefetch" href="/assets/js/21.fd36ef2f.js"><link rel="prefetch" href="/assets/js/22.71109e4f.js"><link rel="prefetch" href="/assets/js/23.59a54fc8.js"><link rel="prefetch" href="/assets/js/3.ec1fd837.js"><link rel="prefetch" href="/assets/js/4.8c700e84.js"><link rel="prefetch" href="/assets/js/6.5ed9b7b0.js"><link rel="prefetch" href="/assets/js/7.c9781930.js"><link rel="prefetch" href="/assets/js/8.79332794.js"><link rel="prefetch" href="/assets/js/9.687aff7e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d24be81f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">jump-jump-docs</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/introduction.html" class="nav-link">个人博客</a></div><div class="nav-item"><a href="/algorithm/introduction.html" class="nav-link">常用算法</a></div><div class="nav-item"><a href="/notes/introduction.html" class="nav-link">笔记</a></div><div class="nav-item"><a href="/about.html" class="nav-link">关于</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">了解更多</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/wsafight" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="/learn.html" class="nav-link">学习资源</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/introduction.html" class="nav-link">个人博客</a></div><div class="nav-item"><a href="/algorithm/introduction.html" class="nav-link">常用算法</a></div><div class="nav-item"><a href="/notes/introduction.html" class="nav-link">笔记</a></div><div class="nav-item"><a href="/about.html" class="nav-link">关于</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">了解更多</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/wsafight" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="/learn.html" class="nav-link">学习资源</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blog/introduction.html" class="sidebar-link">导读</a></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>web前端</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/blog/web-front/2019-05-09.html" class="sidebar-link">利用 es6 new.target 来对模拟抽象类</a></li><li><a href="/blog/web-front/2019-05-03.html" class="sidebar-link">谈谈前端工程化 js加载</a></li><li><a href="/blog/web-front/2019-04-21.html" class="sidebar-link">前端 api 请求缓存方案</a></li><li><a href="/blog/web-front/2018-04-28.html" class="sidebar-link">利用 WeakMap 对 Vue 新建数组中的对象赋予 :key</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>小程序</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/blog/mini-program/2019-05-13.html" class="sidebar-link">小程序绑定用户方案 优化</a></li><li><a href="/blog/mini-program/2019-04-27.html" class="sidebar-link">从 VantComponent 谈 小程序维护</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>工程实践</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/blog/engineering/2019-06-12.html" class="sidebar-link">震惊，使用 imba 框架,得到比 vue 快50倍的性能基准</a></li><li><a href="/blog/engineering/2019-06-03.html" class="sidebar-link">探讨奇技淫巧</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading open"><span>实用工具</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/blog/utilities/2019-06-17.html" class="active sidebar-link">手把手教你使用issue作为博客评论系统</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/utilities/2019-06-17.html#tldr-不多废话，先看效果" class="sidebar-link">TLDR (不多废话，先看效果)</a></li><li class="sidebar-sub-header"><a href="/blog/utilities/2019-06-17.html#utterances-介绍及使用" class="sidebar-link">utterances 介绍及使用</a></li><li class="sidebar-sub-header"><a href="/blog/utilities/2019-06-17.html#utterances其他配置项" class="sidebar-link">utterances其他配置项</a></li><li class="sidebar-sub-header"><a href="/blog/utilities/2019-06-17.html#参考文档" class="sidebar-link">参考文档</a></li></ul></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="手把手教你使用issue作为博客评论系统"><a href="#手把手教你使用issue作为博客评论系统" aria-hidden="true" class="header-anchor">#</a> 手把手教你使用issue作为博客评论系统</h1> <p>自从上周在阮一峰的 <a href="http://www.ruanyifeng.com/blog/2019/06/weekly-issue-60.html" target="_blank" rel="noopener noreferrer">每周分享第 60 期<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 看到了可以将 GitHub 的 issue 当作评论系统，插入第三方网页的 JS 库——<a href="https://utteranc.es/" target="_blank" rel="noopener noreferrer">utterances<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。我就对此“魂牵梦绕”。个人博客使用的是<a href="https://vuepress.vuejs.org/zh/" target="_blank" rel="noopener noreferrer">VuePress<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。</p> <h2 id="tldr-不多废话，先看效果"><a href="#tldr-不多废话，先看效果" aria-hidden="true" class="header-anchor">#</a> TLDR (不多废话，先看效果)</h2> <p>之前是使用了 Valine 作为博客的评论系统。</p> <p><img src="/assets/img/valine.2795ad37.jpg" alt="valine"></p> <p>下图是改为 utterances 风格。</p> <p><img src="/assets/img/utterances.91268495.jpg" alt="utterances"></p> <h2 id="utterances-介绍及使用"><a href="#utterances-介绍及使用" aria-hidden="true" class="header-anchor">#</a> utterances 介绍及使用</h2> <p>utterances 是基于github issue，拥有多种主题的开源免费小组件。</p> <p>1.首先我们所需要的 github 存储库必须是公开的，而不是私有的，这样我们的读者才可以查看以及发表评论。</p> <p>2.我们必须在 github 上进行安装 utterances,首先我们访问 <a href="https://github.com/apps/utterances" target="_blank" rel="noopener noreferrer">utterances应用程序<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 然后点击 Install 按钮进行安装。
+<img src="/assets/img/utterances-index.95932b2f.jpg" alt="utterances index"></p> <p>3.在这里可以选择可以关联的存储库，可以选择我们所拥有的库(也包括未来建立的库)或者某一个仓库，这里我们只选择某一个需要进行评论的库，这样比较好。
+<img src="/assets/img/utterances-select.2f1ec705.jpg" alt="utterances select"></p> <p>4.安装完成即可，随后我们访问<a href="https://github.com/apps/utterances" target="_blank" rel="noopener noreferrer">utterances应用程序<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>就不再是安装而是是执行配置项目。</p> <p><img src="/assets/img/utterances-index2.b6d06b59.jpg" alt="utterances index2"></p> <p><img src="/assets/img/utterances-select2.d26b3ce7.jpg" alt="utterances select2"></p> <p>5.此时服务端配置已经完成，现在我们可以进行客户端的操作，也就是 blog 端。在blog端我们只需要添加以下这段脚本就可以直接运行。</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;script 
+// 加载的客户端脚本
+    src=&quot;https://utteranc.es/client.js&quot;
+// repo 就是访问的仓库，格式 用户名/仓库名
+// 个人就是 repo=&quot;wsafight/personBlog&quot;
+        repo=&quot;[ENTER REPO HERE]&quot;
+
+// 选定的当前blog 与 issue 之间的关系
+// 个人使用的是不会自动创建的 issue-number，每个issue都有自己的number。该选项是使用特定的issue
+        issue-term=&quot;pathname&quot;
+// 主题为  github-light 还有其他主题可以选择        
+        theme=&quot;github-light&quot;
+        crossorigin=&quot;anonymous&quot;
+        async&gt;
+&lt;/script&gt;
+</code></pre></div><p>6.因为我的博客是采用 <a href="https://vuepress.vuejs.org/zh/" target="_blank" rel="noopener noreferrer">VuePress<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>,所以在 markdown 中是无法使用 script 脚本的。我们就需要编写写一个 vue 组件。(组件的文件路径为 [blog name]/.vuepress/components/)</p> <div class="language- extra-class"><pre class="language-text"><code>// Utterances 组件
+&lt;template&gt;
+    &lt;div id=&quot;comment&quot;&gt;&lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+export default {
+  name: 'Utterances',
+  props: {
+    // 传入的 issue-number  
+    id: Number
+  },
+  methods: {
+    initValine () {
+        // 建立脚本以及属性
+        const utterances = document.createElement('script');
+        utterances.type = 'text/javascript';
+        utterances.async = true;
+        utterances.setAttribute('issue-number', this.id)
+        utterances.setAttribute('theme','github-light')
+        utterances.setAttribute('repo',`wsafight/personBlog`)
+        utterances.crossorigin = 'anonymous';
+        utterances.src = 'https://utteranc.es/client.js';
+
+        // comment 是要插入评论的地方
+        window.document.getElementById('comment').appendChild(utterances);
+
+    }
+  },
+  mounted: function(){
+    // 每次挂载时候，进行初始化
+    this.initValine()
+  }
+}
+&lt;/script&gt;
+</code></pre></div><p>7.最后。在 md 文档中直接使用上面编写的组件</p> <div class="language- extra-class"><pre class="language-text"><code>## 参考资料
+[高性能JS-DOM](https://www.cnblogs.com/libin-1/p/6376026.html)   
+[imba 性能篇](http://imba.io/guides/advanced/performance)
+
+// 可以在 md 文档中直接使用组件
+&lt;Utterances :id=&quot;1&quot;/&gt;
+</code></pre></div><h2 id="utterances其他配置项"><a href="#utterances其他配置项" aria-hidden="true" class="header-anchor">#</a> utterances其他配置项</h2> <p>主题 Theme 选项如下,我们可以选择各色主题：</p> <ul><li>Github Light</li> <li>Github Dark</li> <li>Github Dark Orange</li> <li>Icy Dark</li> <li>Dark Blue</li> <li>Photon Dark</li></ul> <p>评论 issue-term 映射配置选项如下：</p> <ul><li>pathname</li> <li>url</li> <li>title</li> <li>og:title</li> <li>issue-number<br>
+issue-term=&quot;1&quot;<br>
+特定number的issue，不会自动创建，个人使用该方案</li> <li>specific-term</li></ul> <h2 id="参考文档"><a href="#参考文档" aria-hidden="true" class="header-anchor">#</a> 参考文档</h2> <p><a href="https://utteranc.es/" target="_blank" rel="noopener noreferrer">utteranc 文档<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a><br> <a href="https://www.cnblogs.com/stevexu/p/10808134.html" target="_blank" rel="noopener noreferrer">博客使用 utterances 作为评论系统<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <div id="comment"></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/blog/engineering/2019-06-03.html" class="prev">
+          探讨奇技淫巧
+        </a></span> <!----></p></div> </div> <!----></div></div>
+    <script src="/assets/js/app.d3318e7b.js" defer></script><script src="/assets/js/2.104036b8.js" defer></script><script src="/assets/js/5.430c2856.js" defer></script>
+  </body>
+</html>
